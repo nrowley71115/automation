@@ -1,0 +1,109 @@
+Date,Description,Amount,Account,Main Category,Subcategory
+Files Processed:,"Chase5502_Activity_20250310-2.CSV, Chase8703_Activity20250201_20250228_20250311.CSV, Chase3589_Activity20250201_20250228_20250311.CSV, Chase0431_Activity20250201_20250228_20250311.CSV",,,,
+,,,,,
+,== Unknown:  ==,$3949.42,,Unknown,
+02/01/2025,Payment Thank You - Web,768.59,Chase8703,Unknown,
+02/01/2025,Payment Thank You - Web,338.57,Chase3589,Unknown,
+02/01/2025,Payment Thank You - Web,2842.26,Chase0431,Unknown,
+,,,,,
+,== Unknown: D J*WSJ ==,$4.33,,Unknown,D J*WSJ
+02/17/2025,D J*WSJ,-4.33,Chase0431,Unknown,D J*WSJ
+,,,,,
+,=== TOTAL Unknown ===,$3945.09,,Unknown,TOTAL
+,,,,,
+,== Spending: shopping ==,$425.25,,Spending,shopping
+02/02/2025,SAMS SCAN-N-GO,-30.78,Chase0431,Spending,shopping
+02/02/2025,SAMSCLUB #6422,-16.96,Chase0431,Spending,shopping
+02/03/2025,SAMSCLUB #6422,-20.30,Chase0431,Spending,shopping
+02/09/2025,SAMS SCAN-N-GO,-69.20,Chase0431,Spending,shopping
+02/12/2025,DOLLARTREE,-39.24,Chase0431,Spending,shopping
+02/16/2025,SAMSCLUB #6422,-16.89,Chase0431,Spending,shopping
+02/16/2025,SAMSCLUB #6422,-13.43,Chase0431,Spending,shopping
+02/18/2025,Amazon.com*SY38T36C3,-72.27,Chase3589,Spending,shopping
+02/20/2025,Amazon.com*ZW68T6MG3,-41.61,Chase3589,Spending,shopping
+02/22/2025,APPLE.COM/BILL,-2.99,Chase0431,Spending,shopping
+02/23/2025,SAMSCLUB #6422,-63.82,Chase0431,Spending,shopping
+02/25/2025,Amazon.com*6D6BI9VK3,-11.41,Chase3589,Spending,shopping
+02/26/2025,APPLE.COM/BILL,-8.65,Chase0431,Spending,shopping
+02/28/2025,CHE*CHEGG STUDY,-17.70,Chase8703,Spending,shopping
+,,,,,
+,== Spending: groceries ==,$318.00,,Spending,groceries
+02/02/2025,WAL-MART #398,-90.24,Chase0431,Spending,groceries
+02/12/2025,WAL-MART #3828,-4.77,Chase0431,Spending,groceries
+02/13/2025,WAL-MART #3828,-30.33,Chase0431,Spending,groceries
+02/16/2025,WAL-MART #398,-74.22,Chase0431,Spending,groceries
+02/23/2025,WAL-MART #398,-118.44,Chase0431,Spending,groceries
+,,,,,
+,== Spending: debt payment ==,$4002.21,,Spending,debt payment
+02/03/2025,Payment to Chase card ending in 3589 02/03,-338.57,Chase5502,Spending,debt payment
+02/03/2025,Payment to Chase card ending in 0431 02/03,-2842.26,Chase5502,Spending,debt payment
+02/03/2025,Payment to Chase card ending in 8703 02/03,-768.59,Chase5502,Spending,debt payment
+02/04/2025,IRS              USATAXPYMT                 PPD ID: 3387702000,-2.00,Chase5502,Spending,debt payment
+02/21/2025,ADVS ED SERV PPD STUDNTLOAN                 PPD ID: 9102001101,-50.79,Chase5502,Spending,debt payment
+,,,,,
+,== Spending: utilities (wifi) ==,$55.00,,Spending,utilities (wifi)
+02/05/2025,PY*TNT INTERNET &amp; TV,-55.00,Chase0431,Spending,utilities (wifi)
+,,,,,
+,== Spending: eating out ==,$99.11,,Spending,eating out
+02/07/2025,CHICK-FIL-A #00862,-12.28,Chase0431,Spending,eating out
+02/07/2025,ARAMARK TEXAS EASTMAN,-7.05,Chase0431,Spending,eating out
+02/14/2025,TST*GRATEFUL HEAD PIZZA,-32.98,Chase0431,Spending,eating out
+02/14/2025,JAGGERS FR #795,-14.27,Chase0431,Spending,eating out
+02/16/2025,CN LANDING RESORT,-15.00,Chase0431,Spending,eating out
+02/19/2025,ARAMARK TEXAS EASTMAN,-12.00,Chase0431,Spending,eating out
+02/21/2025,ARAMARK TEXAS EASTMAN,-5.53,Chase0431,Spending,eating out
+,,,,,
+,== Spending: car (gas) ==,$20.22,,Spending,car (gas)
+02/08/2025,SAMSCLUB #4109,-20.22,Chase0431,Spending,car (gas)
+,,,,,
+,== Spending: alcohol/going out ==,$33.33,,Spending,alcohol/going out
+02/12/2025,OIL BOWL,-17.95,Chase0431,Spending,alcohol/going out
+02/15/2025,BEAVERS BEND BREWERY,-15.38,Chase0431,Spending,alcohol/going out
+,,,,,
+,== Spending: subscriptions ==,$47.67,,Spending,subscriptions
+02/13/2025,Amazon Prime*NZ5YS80P3,-8.00,Chase3589,Spending,subscriptions
+02/19/2025,Spotify USA,-18.39,Chase8703,Spending,subscriptions
+02/24/2025,OPENAI *CHATGPT SUBSCR,-21.28,Chase0431,Spending,subscriptions
+,,,,,
+,== Spending: movies ==,$39.24,,Spending,movies
+02/18/2025,FILM ALLEY LONGVIEW,-16.24,Chase0431,Spending,movies
+02/21/2025,FILM ALLEY LONGVIEW,-23.00,Chase0431,Spending,movies
+,,,,,
+,== Spending: gas ==,$12.24,,Spending,gas
+02/23/2025,SAMS CLUB #6422,-12.24,Chase0431,Spending,gas
+,,,,,
+,== Spending: gym ==,$10.81,,Spending,gym
+02/24/2025,CRUNCH FIT       CLUB FEES                  PPD ID: 1710602737,-10.81,Chase5502,Spending,gym
+,,,,,
+,"== Spending: utilities (elec, wifi) ==",$95.16,,Spending,"utilities (elec, wifi)"
+02/27/2025,AMER ELECT PWR   CPPWDRAWAL 9611791403      WEB ID: 1720323455,-95.16,Chase5502,Spending,"utilities (elec, wifi)"
+,,,,,
+,=== TOTAL Spending ===,$5158.24,,Spending,TOTAL
+,,,,,
+,== Investments: ally bank ==,$200.00,,Investments,ally bank
+02/03/2025,ALLY BANK        $TRANSFER  12406872065     WEB ID: 3770527921,-200.00,Chase5502,Investments,ally bank
+,,,,,
+,== Investments: vanguard roth IRA ==,$500.00,,Investments,vanguard roth IRA
+02/03/2025,VANGUARD BUY     INVESTMENT                 PPD ID: VMC PUR,-500.00,Chase5502,Investments,vanguard roth IRA
+,,,,,
+,== Investments: robinhood ==,$7100.00,,Investments,robinhood
+02/04/2025,ROBINHOOD        DEBITS     618435556       WEB ID: 5326394001,-100.00,Chase5502,Investments,robinhood
+02/04/2025,ROBINHOOD        DEBITS     618435556       WEB ID: 5326394001,-7000.00,Chase5502,Investments,robinhood
+,,,,,
+,=== TOTAL Investments ===,$7800.00,,Investments,TOTAL
+,,,,,
+,== Incoming: venmo ==,$545.00,,Incoming,venmo
+02/03/2025,VENMO            PAYMENT    1039987806580   WEB ID: 3264681992,-330.00,Chase5502,Incoming,venmo
+02/11/2025,Zelle payment from DEBBIE MAYBERRY 23696209824,100.00,Chase5502,Incoming,venmo
+02/14/2025,VENMO            PAYMENT    1040261732895   WEB ID: 3264681992,-100.00,Chase5502,Incoming,venmo
+02/18/2025,VENMO            PAYMENT    1040343861619   WEB ID: 3264681992,-200.00,Chase5502,Incoming,venmo
+02/24/2025,VENMO            PAYMENT    1040437825386   WEB ID: 3264681992,-15.00,Chase5502,Incoming,venmo
+,,,,,
+,== Incoming: eastman ==,$5911.40,,Incoming,eastman
+02/14/2025,EASTMAN CHEMICAL XREG SALX                  PPD ID: 1621539359,2505.30,Chase5502,Incoming,eastman
+02/19/2025,EASTMAN CHEMICAL EDIPAY4471                 PPD ID: 1620677122,900.80,Chase5502,Incoming,eastman
+02/28/2025,EASTMAN CHEMICAL XREG SALX                  PPD ID: 1621539359,2505.30,Chase5502,Incoming,eastman
+,,,,,
+,=== TOTAL Incoming ===,$5366.40,,Incoming,TOTAL
+,,,,,
+,=== OVERALL TOTAL ===,-$3646.75,,TOTAL,TOTAL
