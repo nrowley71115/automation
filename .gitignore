@@ -1,1 +1,4 @@
 .env
+accounts/*.csv
+accounts/*.CSV
+outputs/*.csv

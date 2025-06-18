@@ -9,6 +9,17 @@ from openai import OpenAI  # Updated import
 # Load environment variables (create a .env file with OPENAI_API_KEY=your_key)
 load_dotenv()
 
+# OpenAI model options
+OPENAI_MODELS = {
+    "GPT4_MINI": "gpt-4o-mini",
+    "GPT4O": "gpt-4o",
+    "GPT4_1": "gpt-4-1106-preview",           # GPT-4.1
+    "GPT4_1_MINI": "gpt-4-1106-vision-preview" # GPT-4.1 mini (vision, also works for text)
+}
+
+# Current Model
+CURRENT_MODEL = OPENAI_MODELS["GPT4_1"]
+
 # Configure OpenAI API with new client format
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -65,7 +76,7 @@ def read_transactions(file_path):
     
     return transactions
 
-def categorize_transaction(transaction, model="gpt-4o-mini"):
+def categorize_transaction(transaction, model=CURRENT_MODEL):
     """Use OpenAI to categorize a transaction."""
     description = transaction['Description']
     
@@ -102,6 +113,8 @@ def categorize_transaction(transaction, model="gpt-4o-mini"):
     
     For debit accounts: ACH_CREDIT and QUICKPAY_CREDIT are typically incoming transactions,
     while ACH_DEBIT and LOAN_PMT are typically spending or investments.
+
+    'SAMSCLUB' and 'SAMS SCAN-N-GO' are usually groceries even though the category is labeled as 'shopping'. 'SAMSCLUB' is car (gas, maint) when the cateogry is gas. 'D J*WSJ' and 'CHE*CHEGG STUDY' is a subscription.
     
     Return only the budget category (Incoming, Spending, Investments, or Unknown) 
     followed by a colon and the specific subcategory.
@@ -169,6 +182,7 @@ def process_multiple_files(file_paths):
         date = transaction['Transaction Date']
         description = transaction['Description']
         account = transaction['Account']
+        original_category = transaction.get('Category', '')  # Get original category if available
         
         # Use OpenAI to categorize
         main_category, subcategory = categorize_transaction(transaction)
@@ -178,7 +192,8 @@ def process_multiple_files(file_paths):
             'date': date,
             'description': description,
             'amount': amount,
-            'account': account
+            'account': account,
+            'original_category': original_category  # Store the original category
         })
     
     return categorized
@@ -234,6 +249,7 @@ def export_to_csv(categorized, file_paths):
         'Description': ', '.join(os.path.basename(path) for path in file_paths),
         'Amount': '',
         'Account': '',
+        'Given Category': '',
         'Main Category': '',
         'Subcategory': ''
     })
@@ -244,6 +260,7 @@ def export_to_csv(categorized, file_paths):
         'Description': '',
         'Amount': '',
         'Account': '',
+        'Given Category': '',
         'Main Category': '',
         'Subcategory': ''
     })
@@ -262,6 +279,7 @@ def export_to_csv(categorized, file_paths):
                 'Description': f"== {main_category}: {subcategory} ==",
                 'Amount': f"${abs(subcategory_total):.2f}",
                 'Account': '',
+                'Given Category': '',
                 'Main Category': main_category,
                 'Subcategory': subcategory
             })
@@ -273,6 +291,7 @@ def export_to_csv(categorized, file_paths):
                     'Description': t['description'],
                     'Amount': t['amount'],
                     'Account': t['account'],
+                    'Given Category': t.get('original_category', ''),  # Include original category
                     'Main Category': main_category,
                     'Subcategory': subcategory
                 }
@@ -284,6 +303,7 @@ def export_to_csv(categorized, file_paths):
                 'Description': '',
                 'Amount': '',
                 'Account': '',
+                'Given Category': '',
                 'Main Category': '',
                 'Subcategory': ''
             })
@@ -294,6 +314,7 @@ def export_to_csv(categorized, file_paths):
             'Description': f"=== TOTAL {main_category} ===",
             'Amount': f"${abs(main_category_total):.2f}",
             'Account': '',
+            'Given Category': '',
             'Main Category': main_category,
             'Subcategory': 'TOTAL'
         })
@@ -304,6 +325,7 @@ def export_to_csv(categorized, file_paths):
             'Description': '',
             'Amount': '',
             'Account': '',
+            'Given Category': '',
             'Main Category': '',
             'Subcategory': ''
         })
@@ -321,13 +343,14 @@ def export_to_csv(categorized, file_paths):
         'Description': '=== OVERALL TOTAL ===',
         'Amount': format_amount(total),
         'Account': '',
+        'Given Category': '',
         'Main Category': 'TOTAL',
         'Subcategory': 'TOTAL'
     })
     
     # Write to CSV
     with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['Date', 'Description', 'Amount', 'Account', 'Main Category', 'Subcategory']
+        fieldnames = ['Date', 'Description', 'Amount', 'Account', 'Given Category', 'Main Category', 'Subcategory']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
@@ -348,6 +371,9 @@ def main():
     if not csv_files:
         print("No CSV files found in the accounts directory.")
         return
+    
+    # Print currently selected AI model
+    print(f"LLM MOODEL: {CURRENT_MODEL}")
     
     # List available files
     print("Available CSV files:")
