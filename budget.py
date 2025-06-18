@@ -13,12 +13,12 @@ load_dotenv()
 OPENAI_MODELS = {
     "GPT4_MINI": "gpt-4o-mini",
     "GPT4O": "gpt-4o",
-    "GPT4_1": "gpt-4-1106-preview",           # GPT-4.1
-    "GPT4_1_MINI": "gpt-4-1106-vision-preview" # GPT-4.1 mini (vision, also works for text)
+    "GPT4_1": "gpt-4-1106-preview",           
+    "GPT4_1_MINI": "gpt-4-1106-vision-preview" 
 }
 
 # Current Model
-CURRENT_MODEL = OPENAI_MODELS["GPT4_1"]
+CURRENT_MODEL = OPENAI_MODELS["GPT4_1_MINI"]
 
 # Configure OpenAI API with new client format
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
