@@ -18,19 +18,19 @@ OPENAI_MODELS = {
 }
 
 # Current Model
-CURRENT_MODEL = OPENAI_MODELS["GPT4_1_MINI"]
+CURRENT_MODEL = OPENAI_MODELS["GPT4_1"]
 
 # Configure OpenAI API with new client format
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Define budget categories
 BUDGET_CATEGORIES = {
-    "Incoming": ["venmo", "eastman", "work", "cash", "payment"],
+    "Incoming": ["venmo", "eastman", "work", "cash", "slb_payroll", "cameron_payroll"],
     "Spending": [
         "rent", "utilities", "elec", "wifi", "debt payment", 
-        "insurance", "car", "renters", "dr. apt", "gas", "maint",
-        "groceries", "gym", "shopping", "eating out", "food", "drink",
-        "alcohol", "going out", "gifts", "movies", "entertainment", "subscriptions"
+        "insurance", "dr. apt", "gas", "car maintenance",
+        "groceries", "gym", "Tuition (UT Austin)", "shopping", "eating out", 
+        "alcohol / bar", "gifts", "movies", "subscriptions"
     ],
     "Investments": ["vanguard", "roth ira", "robinhood", "coinbase", "ally bank"],
     "Unknown": []
@@ -93,17 +93,23 @@ def categorize_transaction(transaction, model=CURRENT_MODEL):
     transaction_type = transaction.get('Type', '')
     category = transaction.get('Category', '')
     
+    # Build dynamic category descriptions from BUDGET_CATEGORIES dictionary
+    category_descriptions = []
+    for main_category, subcategories in BUDGET_CATEGORIES.items():
+        if subcategories:  # Only include categories that have subcategories defined
+            subcategory_list = ", ".join(subcategories)
+            category_descriptions.append(f"    - {main_category}: {subcategory_list}")
+        else:
+            category_descriptions.append(f"    - {main_category}: if it doesn't match any above")
+    
+    categories_text = "\n".join(category_descriptions)
+    
     # Enhance prompt with transaction type for debit accounts
     prompt = f"""
     Based on the transaction description, amount, and existing category (if any), 
     classify this transaction into one of the following budget categories:
     
-    - Incoming: venmo, eastman (work), or cash
-    - Spending: rent, utilities (elec, wifi), debt payment, insurance (car, renters, dr. apt), 
-      car (gas, maint), groceries, gym, shopping, eating out, alcohol/going out, gifts, 
-      movies, or subscriptions
-    - Investments: vanguard roth IRA, robinhood, coinbase, or ally bank
-    - Unknown: if it doesn't match any above
+{categories_text}
     
     Transaction Information:
     - Description: {description}
