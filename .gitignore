@@ -2,3 +2,14 @@
 accounts/*.csv
 accounts/*.CSV
 outputs/*.csv
+
+# Additional safety for GitHub publishing
+outputs/
+accounts/
+*.xlsx
+*.xls
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+venv/
