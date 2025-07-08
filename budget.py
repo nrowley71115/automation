@@ -291,7 +291,12 @@ def export_to_csv(categorized, file_paths):
             })
             
             # Add all transactions for this subcategory
+            transaction_amounts = []  # Store amounts for Excel formula
             for t in transactions:
+                # Store the absolute value of the amount for the formula
+                amount_value = abs(float(t['amount']))
+                transaction_amounts.append(str(amount_value))
+                
                 row = {
                     'Date': t['date'],
                     'Description': t['description'],
@@ -302,6 +307,19 @@ def export_to_csv(categorized, file_paths):
                     'Subcategory': subcategory
                 }
                 csv_data.append(row)
+            
+            # Add Excel formula row for this subcategory
+            if transaction_amounts:
+                excel_formula = "=" + "+".join(transaction_amounts)
+                csv_data.append({
+                    'Date': '',
+                    'Description': f"EXCEL FORMULA for {subcategory}:",
+                    'Amount': excel_formula,
+                    'Account': '',
+                    'Given Category': '',
+                    'Main Category': main_category,
+                    'Subcategory': f"{subcategory}_FORMULA"
+                })
             
             # Add a blank row after each subcategory
             csv_data.append({
